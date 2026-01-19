@@ -1,27 +1,32 @@
 package app;
 
-import model.PedidoComida;
-import model.PedidoEncomienda;
-import model.PedidoExpress;
+import model.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
 
-        PedidoComida pedido1 = new PedidoComida(1, "El Planeta Gol");
-        PedidoEncomienda pedido2 = new PedidoEncomienda(2, "Avenida Brasil");
-        PedidoExpress pedido3 = new PedidoExpress(3, "Miami, Florida");
+        List<Pedido> pedidos = new ArrayList<>();
 
-        pedido1.asignarRepartidor();
-        pedido1.asignarRepartidor("Chupete Suazo");
+        pedidos.add(new PedidoComida(1, "Av. El Planeta Gol", 4));
+        pedidos.add(new PedidoEncomienda(2, "Av. Brasil", 6));
+        pedidos.add(new PedidoExpress(3, "Av. Sarasota", 7));
 
-        System.out.println();
+        String[] repartidores = {
+                "Chupete Suazo",
+                "Mago Valdivia",
+                "Chino Rios"
+        };
 
-        pedido2.asignarRepartidor();
-        pedido2.asignarRepartidor("Mago Valdivia");
-
-        System.out.println();
-
-        pedido3.asignarRepartidor();
-        pedido3.asignarRepartidor("Chino Rios");
+        int i = 0;
+        for (Pedido p : pedidos) {
+            p.mostrarResumen();
+            System.out.println("Tiempo estimado de entrega: "
+                    + p.calcularTiempoEntrega() + " minutos");
+            p.asignarRepartidor(repartidores[i]);
+            System.out.println();
+            i++;
+        }
     }
 }

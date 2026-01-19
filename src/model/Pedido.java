@@ -1,21 +1,38 @@
 package model;
 
-public class Pedido {
-    protected int idPedido;
-    protected String direccionEntrega;
-    protected String tipoPedido;
+public abstract class Pedido {
 
-    public Pedido(int idPedido, String direccionEntrega, String tipoPedido) {
+    private int idPedido;
+    private String direccionEntrega;
+    private double distanciaKm;
+
+    public Pedido(int idPedido, String direccionEntrega, double distanciaKm) {
         this.idPedido = idPedido;
         this.direccionEntrega = direccionEntrega;
-        this.tipoPedido = tipoPedido;
+        this.distanciaKm = distanciaKm;
     }
 
-    public void asignarRepartidor() {
-        System.out.println("Asignando repartidor...");
+    public int getIdPedido() {
+        return idPedido;
     }
+
+    public String getDireccionEntrega() {
+        return direccionEntrega;
+    }
+
+    public double getDistanciaKm() {
+        return distanciaKm;
+    }
+
+    public void mostrarResumen() {
+        System.out.println(getClass().getSimpleName() + " #" + String.format("%03d", idPedido));
+        System.out.println("Dirección: " + direccionEntrega);
+        System.out.println("Distancia: " + distanciaKm + " km");
+    }
+
+    public abstract int calcularTiempoEntrega();
 
     public void asignarRepartidor(String nombreRepartidor) {
-        System.out.println("Pedido asignado a " + nombreRepartidor);
+        System.out.println("→ Pedido asignado a " + nombreRepartidor);
     }
 }
