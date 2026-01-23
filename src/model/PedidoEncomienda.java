@@ -8,8 +8,12 @@ public class PedidoEncomienda extends Pedido {
 
     @Override
     public int calcularTiempoEntrega() {
-        return 20 + (int)(1.5 * getDistanciaKm());
+        return Math.round((float) (20 + 1.5 * distanciaKm));
+    }
+
+    @Override
+    public void asignarRepartidor() {
+        asignarRepartidor("Mago Valdivia");
     }
 }
-
 

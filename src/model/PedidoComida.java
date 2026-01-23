@@ -8,6 +8,11 @@ public class PedidoComida extends Pedido {
 
     @Override
     public int calcularTiempoEntrega() {
-        return 15 + (int)(2 * getDistanciaKm());
+        return Math.round((float) (15 + 2 * distanciaKm));
+    }
+
+    @Override
+    public void asignarRepartidor() {
+        asignarRepartidor("Chupete Suazo");
     }
 }

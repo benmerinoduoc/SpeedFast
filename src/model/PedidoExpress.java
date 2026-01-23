@@ -8,10 +8,15 @@ public class PedidoExpress extends Pedido {
 
     @Override
     public int calcularTiempoEntrega() {
-        int tiempo = 10;
-        if (getDistanciaKm() > 5) {
-            tiempo += 5;
+        int base = 10;
+        if (distanciaKm > 5) {
+            base += 5;
         }
-        return tiempo;
+        return base;
+    }
+
+    @Override
+    public void asignarRepartidor() {
+        asignarRepartidor("Chino Rios");
     }
 }
