@@ -20,6 +20,14 @@ public abstract class Pedido {
         return idPedido;
     }
 
+    public String getDireccionEntrega() {
+        return direccionEntrega;
+    }
+
+    public double getDistanciaKm() {
+        return distanciaKm;
+    }
+
     public String getRepartidor() {
         return repartidor;
     }
@@ -31,15 +39,15 @@ public abstract class Pedido {
         System.out.println("Distancia: " + distanciaKm + " km");
     }
 
-
     public void asignarRepartidor(String nombre) {
         this.repartidor = nombre;
-        System.out.println("Repartidor asignado: " + nombre);
     }
 
-    public abstract void asignarRepartidor();
-
     public abstract int calcularTiempoEntrega();
+
+    public boolean debeCancelarse() {
+        return false;
+    }
 
     public void marcarComoDespachado() {
         this.despachado = true;

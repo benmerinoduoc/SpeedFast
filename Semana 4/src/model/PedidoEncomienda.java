@@ -10,10 +10,4 @@ public class PedidoEncomienda extends Pedido {
     public int calcularTiempoEntrega() {
         return Math.round((float) (20 + 1.5 * distanciaKm));
     }
-
-    @Override
-    public void asignarRepartidor() {
-        asignarRepartidor("Mago Valdivia");
-    }
 }
-

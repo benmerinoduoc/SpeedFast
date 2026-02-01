@@ -16,7 +16,7 @@ public class PedidoExpress extends Pedido {
     }
 
     @Override
-    public void asignarRepartidor() {
-        asignarRepartidor("Chino Rios");
+    public boolean debeCancelarse() {
+        return true;
     }
 }
